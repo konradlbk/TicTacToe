@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String[][] board = new String[][]{{" ", " ", " "}, {" ", " ", " "}, {" ", " ", " "}};
-        didyouWin(board);
+        // didyouWin(board);
 
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board.length; j++) {
@@ -19,9 +19,7 @@ public class Main {
 
 
         for (int k = 0; k < board.length; k++) {
-            if (didyouWin(board) == true) {
-                break;
-            }
+
             for (int w = 0; w < board.length; w++) {
 
 
@@ -74,7 +72,7 @@ public class Main {
                     }
 
                     if (didyouWin(board) == true) {
-                        break;
+                        return;
                     }
                     System.out.println("Kolej gracza O");
                     sign = scanner.nextLine();
@@ -127,7 +125,7 @@ public class Main {
 
                     }
                     if (didyouWin(board) == true) {
-                        break;
+                        return;
                     }
 
 
@@ -147,20 +145,20 @@ public class Main {
                         || check[i][j].contains("O") && check[i + 1][j].contains("O") && check[i + 2][j].contains("O")) {
                     System.out.println("Wygrana");
                     didWin = true;
-                    break;
+                    return true;
 
                 }
                 if (check[i + 1][j].contains("X") && check[i + 1][j + 1].contains("X") && check[i + 1][j + 2].contains("X") ||
                         check[i + 1][j].contains("O") && check[i + 1][j + 1].contains("O") && check[i + 1][j + 2].contains("O")) {
                     System.out.println("Wygrana");
                     didWin = true;
-                    break;
+                    return true;
                 }
                 if (check[i + 2][j].contains("X") && check[i + 2][j + 1].contains("X") && check[i + 2][j + 2].contains("X") ||
                         check[i + 2][j].contains("O") && check[i + 2][j + 1].contains("O") && check[i + 2][j + 2].contains("O")) {
                     System.out.println("Wygrana");
                     didWin = true;
-                    break;
+                    return true;
 
 
                 }
@@ -168,7 +166,7 @@ public class Main {
                         check[i][j].contains("O") && check[i + 1][j + 1].contains("O") && check[i + 2][j + 2].contains("O")) {
                     System.out.println("Wygrana");
                     didWin = true;
-                    break;
+                    return true;
 
 
                 }
@@ -176,7 +174,7 @@ public class Main {
                         check[i][j + 2].contains("O") && check[i + 1][j + 1].contains("O") && check[i + 2][j].contains("O")) {
                     System.out.println("Wygrana");
                     didWin = true;
-                    break;
+                    return true;
 
 
                 }
@@ -185,7 +183,7 @@ public class Main {
                         check[i][j].contains("O") && check[i][j + 1].contains("O") && check[i][j + 2].contains("O")) {
                     System.out.println("Wygrana");
                     didWin = true;
-                    break;
+                    return true;
 
 
                 }
@@ -194,7 +192,7 @@ public class Main {
                         check[i][j + 1].contains("O") && check[i + 1][j + 1].contains("O") && check[i + 2][j + 1].contains("O")) {
                     System.out.println("Wygrana");
                     didWin = true;
-                    break;
+                    return true;
 
 
                 }
@@ -202,14 +200,14 @@ public class Main {
                         check[i][j + 2].contains("O") && check[i + 1][j + 2].contains("O") && check[i + 2][j + 2].contains("O")) {
                     System.out.println("Wygrana");
                     didWin = true;
-                    break;
+                    return true;
 
 
                 }
             }
 
         }
-        return didWin;
+        return false;
     }
 
 
